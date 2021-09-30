@@ -2,6 +2,7 @@ package com.corp.unitconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,14 +26,15 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
 
         btn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Successfully Converted", Toast.LENGTH_SHORT).show();
-                 int kg = Integer.parseInt(editText.getText().toString());
+                 double kg = Double.parseDouble(editText.getText().toString());
 
                  double gram = kg*1000;
 
-                 textView.setText("Value in gram is: "+gram);
+                 textView.setText("Value in gram is: "+gram+" gram");
 
 
             }
